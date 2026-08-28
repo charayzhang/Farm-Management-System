@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}FMS - Paddocks{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+    <div>
+        <h1 class="h2 fw-bold text-success mb-1">Paddocks</h1>
+        <p class="text-muted mb-0">Row colour shows <strong>pasture level (DM/ha)</strong> — not whether a mob is here. Moving cows away does not instantly restore grass.</p>
+    </div>
+    <div class="d-flex flex-wrap gap-2">
+        <form action="{{ url_for('advance_date') }}" method="post" class="m-0">
+            <button type="submit" class="btn btn-warning">Advance to next day →</button>
+        </form>
+        <a href="{{ url_for('edit_paddocks') }}" class="btn btn-outline-success">Edit paddocks</a>
+        <a href="{{ url_for('move_mob') }}" class="btn btn-success">Move mob</a>
+    </div>
+</div>
+
+<div class="alert alert-light border small mb-3">
+    <strong>Why is an empty paddock still red?</strong>
+    The grass was already depleted (e.g. Stream 1 at 1354 DM/ha). Removing the mob stops further grazing, but recovery happens when you <strong>Advance to next day</strong> — empty paddocks only grow, they do not consume.
+</div>
+
+<div class="d-flex flex-wrap gap-3 mb-3 small">
+    <span><span class="badge text-bg-warning">Yellow</span> DM/ha &lt; 1800 (getting low)</span>
+    <span><span class="badge text-bg-danger">Red</span> DM/ha &lt; 1500 (poor — grass needs time to recover)</span>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-success">
+                <tr>
+                    <th scope="col">Paddock</th>
+                    <th scope="col">Mob</th>
+                    <th scope="col" class="text-end"># Stock</th>
+                    <th scope="col" class="text-end">Area (ha)</th>
+                    <th scope="col" class="text-end">DM/ha</th>
+                    <th scope="col" class="text-end">Total DM</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paddock in paddocks %}
+                <tr class="{% if paddock.dm_per_ha < 1500 %}table-danger{% elif paddock.dm_per_ha < 1800 %}table-warning{% endif %}">
+                    <td class="fw-semibold">{{ paddock.name }}</td>
+                    <td>{{ paddock.mob_name if paddock.mob_name else '—' }}</td>
+                    <td class="text-end">{{ paddock.num_stock if paddock.num_stock else '—' }}</td>
+                    <td class="text-end">{{ "%.2f"|format(paddock.area) }}</td>
+                    <td class="text-end fw-semibold">{{ "%.0f"|format(paddock.dm_per_ha) }}</td>
+                    <td class="text-end">{{ "%.0f"|format(paddock.total_dm) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

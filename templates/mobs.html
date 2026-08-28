@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}FMS - Mobs{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+    <div>
+        <h1 class="h2 fw-bold text-success mb-1">Mobs</h1>
+        <p class="text-muted mb-0">Stock groups and their current paddock locations.</p>
+    </div>
+    <a href="{{ url_for('move_mob') }}" class="btn btn-success">Move a mob</a>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-success">
+                <tr>
+                    <th scope="col">Mob name</th>
+                    <th scope="col">Paddock</th>
+                    <th scope="col" class="text-end"># Stock</th>
+                    <th scope="col" class="text-end">Avg weight (kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mob in mobs %}
+                <tr>
+                    <td class="fw-semibold">{{ mob.name }}</td>
+                    <td><span class="badge text-bg-light border">{{ mob.paddock if mob.paddock else '—' }}</span></td>
+                    <td class="text-end">{{ mob.num_stock if mob.num_stock else '—' }}</td>
+                    <td class="text-end">{% if mob.avg_weight %}{{ "%.1f"|format(mob.avg_weight) }}{% else %}—{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

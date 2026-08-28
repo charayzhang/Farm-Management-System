@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}FMS - Home{% endblock %}
+
+{% block content %}
+<div class="row g-4 align-items-center mb-4">
+    <div class="col-lg-6">
+        <p class="text-success text-uppercase fw-semibold small mb-2">Farm management simulator</p>
+        <h1 class="display-5 fw-bold text-success mb-3">Te Waihora FMS</h1>
+        <p class="lead text-secondary mb-4">
+            Model stock on pasture, track dry matter across paddocks, and plan mob movements —
+            all from a simple web dashboard.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+            <a href="{{ url_for('paddocks') }}" class="btn btn-success btn-lg">View paddocks</a>
+            <a href="{{ url_for('stock') }}" class="btn btn-outline-success btn-lg">Browse stock</a>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card border-0 shadow-sm overflow-hidden bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Pastoral farm landscape" class="w-100 d-block" style="height: auto; min-height: 220px;">
+                <defs>
+                    <linearGradient id="fms-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#dbeafe"/>
+                        <stop offset="100%" stop-color="#eff6ff"/>
+                    </linearGradient>
+                    <linearGradient id="fms-hill-back" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#86efac"/>
+                        <stop offset="100%" stop-color="#4ade80"/>
+                    </linearGradient>
+                    <linearGradient id="fms-hill-front" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#22c55e"/>
+                        <stop offset="100%" stop-color="#16a34a"/>
+                    </linearGradient>
+                </defs>
+                <rect width="960" height="540" fill="url(#fms-sky)"/>
+                <circle cx="780" cy="95" r="52" fill="#fde68a" opacity="0.95"/>
+                <ellipse cx="480" cy="430" rx="520" ry="120" fill="url(#fms-hill-back)"/>
+                <ellipse cx="480" cy="470" rx="560" ry="140" fill="url(#fms-hill-front)"/>
+                <rect x="120" y="300" width="170" height="95" rx="4" fill="#92400e"/>
+                <polygon points="120,300 205,235 290,300" fill="#78350f"/>
+                <rect x="155" y="345" width="42" height="50" fill="#fcd34d"/>
+                <rect x="215" y="345" width="42" height="50" fill="#fcd34d"/>
+                <rect x="650" y="318" width="95" height="62" fill="#a16207" opacity="0.85"/>
+                <g fill="#fef3c7" stroke="#78350f" stroke-width="3">
+                    <ellipse cx="390" cy="404" rx="34" ry="22"/>
+                    <circle cx="420" cy="386" r="16"/>
+                    <ellipse cx="470" cy="404" rx="34" ry="22"/>
+                    <circle cx="500" cy="386" r="16"/>
+                    <ellipse cx="560" cy="408" rx="34" ry="22"/>
+                    <circle cx="590" cy="390" r="16"/>
+                </g>
+                <text x="48" y="56" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="28" font-weight="700">Te Waihora Farm</text>
+                <text x="50" y="88" fill="#166534" font-family="Segoe UI, sans-serif" font-size="16">Pasture · Stock · Paddock management</text>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5 text-success">Stock overview</h2>
+                <p class="text-muted mb-0">See animals grouped by mob with age, weight, and paddock assignment.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5 text-success">Pasture health</h2>
+                <p class="text-muted mb-0">DM/ha highlights warn when grass drops below good or poor thresholds.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5 text-success">Day-by-day simulation</h2>
+                <p class="text-muted mb-0">Advance the farm date to simulate growth, consumption, and mob moves.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

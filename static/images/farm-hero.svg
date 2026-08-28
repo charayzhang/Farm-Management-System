@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Pastoral farm landscape">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="hill-back" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#4ade80"/>
+    </linearGradient>
+    <linearGradient id="hill-front" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <circle cx="780" cy="95" r="52" fill="#fde68a" opacity="0.95"/>
+  <ellipse cx="480" cy="430" rx="520" ry="120" fill="url(#hill-back)"/>
+  <ellipse cx="480" cy="470" rx="560" ry="140" fill="url(#hill-front)"/>
+  <rect x="120" y="300" width="170" height="95" rx="4" fill="#92400e"/>
+  <polygon points="120,300 205,235 290,300" fill="#78350f"/>
+  <rect x="155" y="345" width="42" height="50" fill="#fcd34d"/>
+  <rect x="215" y="345" width="42" height="50" fill="#fcd34d"/>
+  <rect x="650" y="318" width="95" height="62" fill="#a16207" opacity="0.85"/>
+  <path d="M180 410c18-10 36-10 54 0s36 10 54 0 36-10 54 0 36 10 54 0 36-10 54 0 36 10 54 0" fill="none" stroke="#15803d" stroke-width="3" opacity="0.5"/>
+  <g fill="#fef3c7" stroke="#78350f" stroke-width="3">
+    <ellipse cx="390" cy="404" rx="34" ry="22"/>
+    <circle cx="420" cy="386" r="16"/>
+    <ellipse cx="470" cy="404" rx="34" ry="22"/>
+    <circle cx="500" cy="386" r="16"/>
+    <ellipse cx="560" cy="408" rx="34" ry="22"/>
+    <circle cx="590" cy="390" r="16"/>
+  </g>
+  <text x="48" y="56" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="28" font-weight="700">Te Waihora Farm</text>
+  <text x="50" y="88" fill="#166534" font-family="Segoe UI, sans-serif" font-size="16">Pasture · Stock · Paddock management</text>
+</svg>
